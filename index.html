@@ -52,6 +52,25 @@
         </div>
       </div>
 
+      <!-- BEGIN CANARY IN THE COAL MINE -->
+      <div id="canary">
+        <h2>*BREAKING NOISE*</h2>
+        <p class="lead">Please read the error message in your Javascript Console</p>
+        <div class="form-inline">
+          <select class="form-control">
+            <option selected="true" disabled>What kind of error is it?</option>
+            <option name="SyntaxError">SyntaxError</option>
+            <option name="ReferenceError">ReferenceError</option>
+            <option name="TypeError">TypeError</option>
+            <option name="EvalError">EvalError</option>
+            <option name="URIError">URIError</option>
+          </select>
+          <input type="text" class="form-control" placeholder="What file is it in?">
+          <input type="number" class="form-control" placeholder="What line is it on?">
+        </div>
+      </div>
+      <!-- END CANARY IN THE COAL MINE -->
+
       <!-- APPLICATION SCRIPTS -->
       <script src="scripts/ignore-setup.js"></script>
       <script src="scripts/app.js"></script>

@@ -2,3 +2,15 @@
 /* DO NOT MODIFY */
 /* DO NOT MODIFY */
 
+#canary {
+  border: 1px solid black;
+  padding: 1em;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+  position: fixed;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  background-color: rgba(0,0,0, .8);
+}

@@ -20,3 +20,13 @@ problem_set.what_does_the_question_field_say.answer = "YOUR ANSWER HERE";
 
 problem_set.what_is_the_sum_of_the_two_numbers.answer = "YOUR ANSWER HERE";
 
+
+
+
+
+
+
+
+//// DO NOT MODIFY ////
+//// DO NOT MODIFY ////
+removeCanary();

@@ -2,6 +2,10 @@
 //// DO NOT MODIFY ///
 //// DO NOT MODIFY ///
 
+function removeCanary(){
+  $("#canary").remove();
+}
+
 var problem_set = {};
 
 function Question(q, a) {
