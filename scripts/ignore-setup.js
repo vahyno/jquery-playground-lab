@@ -35,11 +35,11 @@ new Question("how_many_h1_tags_are_on_the_page", $("h1").length);
 
 new Question("how_many_p_tags_are_on_the_page", $("p").length);
 
-new Question("grab_all_the_buttons", $("button"));
+new Question("grab_all_the_colorful_messages", $(".alert"));
 
-new Question("grab_the_red_button", $("button").eq(0) );
+new Question("grab_the_red_message", $(".alert-danger") );
 
-new Question("grab_the_blue_button", $("button").eq(4) );
+new Question("grab_the_blue_message", $(".alert-info") );
 
 new Question("what_time_is_it", function(){
   var d = new Date(),
