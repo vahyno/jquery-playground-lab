@@ -14,3 +14,41 @@
   top: 15px;
   background-color: rgba(0,0,0, .8);
 }
+
+
+.red {
+  color: red !important;
+}
+
+.green {
+  color: green !important;
+}
+
+#chessboard .square {
+  /*border: 1px solid black;*/
+  height: 1.5em;
+  text-align: center;
+}
+
+#chessboard .row:first-of-type .square {
+  border-top: 1px solid black;
+}
+#chessboard .row:last-of-type .square {
+  border-bottom: 1px solid black;
+}
+#chessboard .square:first-of-type {
+  border-left: 1px solid black;
+}
+#chessboard .square:last-of-type {
+  border-right: 1px solid black;
+}
+
+
+#chessboard .row:nth-child(odd) .square:nth-child(odd),
+#chessboard .row:nth-child(even) .square:nth-child(even) {
+  background-color: black;
+}
+#chessboard .row:nth-child(odd) .square:nth-child(odd) .glyphicon,
+#chessboard .row:nth-child(even) .square:nth-child(even) .glyphicon {
+  color: white;
+}
