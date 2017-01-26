@@ -14,6 +14,8 @@ problem_set.what_time_is_it.answer = "YOUR ANSWER HERE";
 
 problem_set.what_does_the_question_field_say.answer = "YOUR ANSWER HERE";
 
+problem_set.replace_the_question_field_with_the_word_yes; // MODIFY THE DOM DIRECTLY!
+
 problem_set.how_tall_is_the_image_in_pixels.answer = "YOUR ANSWER HERE";
 
 problem_set.how_wide_is_the_image_in_pixels.answer = "YOUR ANSWER HERE";

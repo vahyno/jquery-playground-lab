@@ -105,6 +105,13 @@ new Question("what_does_the_question_field_say", function answer(){
   return $("input#question").val();
 });
 
+new Question("replace_the_question_field_with_the_word_yes", function(){
+  return $("input#question").val().match(/yes/i)
+}, true)
+
+problem_set.replace_the_question_field_with_the_word_yes; // MODIFY THE DOM DIRECTLY!
+$("input#question").text("yes");
+
 new Question("what_is_the_sum_of_the_two_numbers", (function setup(){
   var total = 0;
 
