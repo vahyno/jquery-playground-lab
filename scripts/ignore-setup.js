@@ -12,9 +12,9 @@ function Question(q, a) {
 Question.prototype = {
   check_answer: function(a){
     var a = a || this.answer;
+    var correct_answer = this.correct_answer
 
-
-    if ( ['string', 'number'].includes(typeof a) ) {
+    if ( ['string', 'number', 'undefined'].includes(typeof this.correct_answer) ) {
       return (a === this.correct_answer);
     }
 
