@@ -50,3 +50,13 @@ problem_set.what_is_the_sum_of_the_two_numbers.answer = total;
 
 problem_set.modify_the_dom_to_display_the_result_of_the_addition; // MODIFY THE DOM DIRECTLY!
 $("input#total").val(total);
+
+problem_set.grab_the_red_queen.answer = $("#chessboard .glyphicon-queen.red");
+
+problem_set.grab_the_square_the_red_queen_is_in.answer = $("#chessboard .glyphicon-queen.red").parent(".square");
+
+problem_set.remove_the_endangered_class_from_the_red_queens_square; // MODIFY THE DOM DIRECTLY!
+$(".endangered").removeClass("endangered");
+
+problem_set.move_the_red_queen_to_safety; // MODIFY THE DOM DIRECTLY!
+$(".row:last-of-type .square:first-of-type").append($("#chessboard .glyphicon-queen.red"));

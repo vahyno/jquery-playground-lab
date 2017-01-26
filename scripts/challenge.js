@@ -26,6 +26,13 @@ problem_set.what_is_the_sum_of_the_two_numbers.answer = "YOUR ANSWER HERE";
 
 problem_set.modify_the_dom_to_display_the_result_of_the_addition; // MODIFY THE DOM DIRECTLY!
 
+problem_set.grab_the_red_queen.answer = "YOUR ANSWER HERE";
+
+problem_set.grab_the_square_the_red_queen_is_in.answer = "YOUR ANSWER HERE";
+
+problem_set.remove_the_endangered_class_from_the_red_queens_square; // MODIFY THE DOM DIRECTLY! (hint: `class="endangered"`)
+
+problem_set.move_the_red_queen_to_safety; // MODIFY THE DOM DIRECTLY!
 
 
 

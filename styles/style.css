@@ -25,10 +25,15 @@
   color: green !important;
 }
 
+.endangered {
+  border: 1px solid yellow !important;
+}
+
 #chessboard .square {
   /*border: 1px solid black;*/
   height: 1.5em;
   text-align: center;
+  border: 1px solid inherit;
 }
 
 #chessboard .row:first-of-type .square {

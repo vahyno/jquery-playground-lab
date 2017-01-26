@@ -135,3 +135,27 @@ new Question("modify_the_dom_to_display_the_result_of_the_addition", function an
 
   return +$("#total").val() === total;
 }, true);
+
+
+new Question("grab_the_red_queen", function answer(){
+  return $("#chessboard .glyphicon-queen.red")
+})
+
+new Question("grab_the_square_the_red_queen_is_in", function answer(){
+  return $("#chessboard .glyphicon-queen.red").parent(".square");
+});
+
+new Question("remove_the_endangered_class_from_the_red_queens_square", function answer(){
+  return $(".endangered").length === 0;
+}, true);
+
+new Question("move_the_red_queen_to_safety", function answer(){
+  var queen_is_safe = $(".glyphicon-queen.red").length && !$(".square:eq(0)").children(".glyphicon-queen.red").length;
+
+  if (queen_is_safe) {
+    // easter egg
+    $("p").text("NICE WORK! You got it!")
+  }
+
+  return
+}, true);
