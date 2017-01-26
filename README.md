@@ -5,10 +5,10 @@ In this lab you will use jQuery methods to answer questions about what's happeni
 For example, given the following prompt:
 
 ``` js
-    answer.how_many_h1_tags_are_on_the_page = "YOUR JQUERY GOES HERE";
+    problem_set.how_many_h1_tags_are_on_the_page.answer = "YOUR JQUERY GOES HERE";
 ```
 
-You would need to select all the `h1` tags on the page, and the count them:
+You would need to select all the `h1` tags on the page, and then count them:
 
 ``` js
     // using jQuery (preferred)
@@ -21,7 +21,14 @@ You would need to select all the `h1` tags on the page, and the count them:
 So your solution would look like this:
 
 ``` js
-    answer.how_many_h1_tags_are_on_the_page = $("h1").length;
+    problem_set.how_many_h1_tags_are_on_the_page.answer = $("h1").length;
 ```
 
-Open `challenge.js` to get started!
+See `challenge.js` for the full problem set.
+
+## Getting Started
+1. Clone this repo, and open it in your text editor of choice.
+1. Launch `index.html` in your Chrome Browser.
+    - Make sure your Chrome Javascript Console is open!
+    - You'll see a list of questions and results.
+1. We encourage you to primarily code in your console. When you've solved a problem, copy your answer into `challenge.js`.
