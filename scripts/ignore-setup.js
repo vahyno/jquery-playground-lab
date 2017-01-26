@@ -101,9 +101,12 @@ new Question("what_is_the_image_url", (function setup(){
 
 }()));
 
-new Question("what_does_the_question_field_say", function answer(){
-  return $("input#question").val();
-});
+new Question("what_does_the_question_field_say", (function setup(){
+  var original_value = $("input#question").val();
+  return function() {
+    return original_value;
+  }
+}()));
 
 new Question("replace_the_question_field_with_the_word_yes", function(){
   return $("input#question").val().match(/yes/i)
@@ -141,9 +144,12 @@ new Question("grab_the_red_queen", function answer(){
   return $("#chessboard .glyphicon-queen.red")
 })
 
-new Question("grab_the_square_the_red_queen_is_in", function answer(){
-  return $("#chessboard .glyphicon-queen.red").parent(".square");
-});
+new Question("grab_the_square_the_red_queen_is_in", (function setup(){
+  var original_square = $("#chessboard .glyphicon-queen.red").parent(".square");
+  return function answer() {
+    return original_square;
+  }
+}()));
 
 new Question("remove_the_endangered_class_from_the_red_queens_square", function answer(){
   return $(".endangered").length === 0;
