@@ -163,5 +163,5 @@ new Question("move_the_red_queen_to_safety", function answer(){
     $("p").text("NICE WORK! You got it!")
   }
 
-  return
+  return queen_is_safe;
 }, true);
