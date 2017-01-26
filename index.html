@@ -41,7 +41,12 @@
         <div class="col-md-8 well">
           <div class="form-group">
             <label for="question">Question:</label>
-            <input type="text" class="form-control" id="question" value="can you grab this text with jQuery?">
+            <div class="input-group">
+              <span class="input-group-addon" id="q-addon">
+                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+              </span>
+              <input type="text" class="form-control" id="question" value="can you grab this text with jQuery?" placeholder="Username" aria-describedby="q-addon">
+            </div>
           </div>
           <div class="form-inline">
             <input class="form-control add-me">
