@@ -8,23 +8,28 @@ function removeCanary(){
 
 var problem_set = {};
 
-function Question(q, getAnswer) {
+function Question(q, getAnswer, check_dom_for_answer) {
   this.answer = null; // user submitted answer
   this.getAnswer = getAnswer;
+  this.check_dom_for_answer = check_dom_for_answer || false;
   window.problem_set[q] = this;
 }
 Question.prototype = {
-  isCorrectAnswer: function(a){
-    var a = a || this.answer;
+  isCorrectAnswer: function(){
+    if (this.check_dom_for_answer) {
+      // Verify that the desired change has occured in the DOM.
+      return this.getAnswer();
+    }
 
     this.correct_answer = this.getAnswer();
 
+    // compare equality of primitive values (no dom nodes!)
     if ( ['string', 'number', 'undefined'].includes(typeof this.correct_answer) ) {
-      return (a === this.correct_answer);
+      return (this.answer === this.correct_answer);
     }
 
     // compare equality of DOM nodes (regardless of $ vs. vanilla)
-    return $(this.correct_answer).is(a);
+    return $(this.correct_answer).is(this.answer);
   }
 }
 
