@@ -16,7 +16,7 @@ for (var k in problem_set) {
 
     results.push({
       prompt: k.replace(/_/g, " "),
-      "is my answer correct?": problem.check_answer() ? "yes" : "no"
+      "is my answer correct?": problem.isCorrectAnswer() ? "yes" : "no"
     })
 
   } else {

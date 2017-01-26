@@ -8,18 +8,16 @@ function removeCanary(){
 
 var problem_set = {};
 
-function Question(q, a_or_cb) {
-  this.answer = null; // submitted answer
-  if ( typeof a_or_cb === "function" ) {
-    this.correct_answer = a_or_cb();
-  } else {
-    this.correct_answer = a_or_cb;
-  }
+function Question(q, getAnswer) {
+  this.answer = null; // user submitted answer
+  this.getAnswer = getAnswer;
   window.problem_set[q] = this;
 }
 Question.prototype = {
-  check_answer: function(a){
+  isCorrectAnswer: function(a){
     var a = a || this.answer;
+
+    this.correct_answer = this.getAnswer();
 
     if ( ['string', 'number', 'undefined'].includes(typeof this.correct_answer) ) {
       return (a === this.correct_answer);
@@ -31,17 +29,27 @@ Question.prototype = {
 }
 
 
-new Question("how_many_h1_tags_are_on_the_page", $("h1").length);
+new Question("how_many_h1_tags_are_on_the_page", function answer(){
+  return $("h1").length;
+});
 
-new Question("how_many_p_tags_are_on_the_page", $("p").length);
+new Question("how_many_p_tags_are_on_the_page", function answer(){
+  return $("p").length;
+});
 
-new Question("grab_all_the_colorful_messages", $(".alert"));
+new Question("grab_all_the_colorful_messages", function answer(){
+  return $(".alert");
+});
 
-new Question("grab_the_red_message", $(".alert-danger") );
+new Question("grab_the_red_message", function answer(){
+  return $(".alert-danger");
+});
 
-new Question("grab_the_blue_message", $(".alert-info") );
+new Question("grab_the_blue_message", function answer(){
+  return $(".alert-info");
+});
 
-new Question("what_time_is_it", function(){
+new Question("what_time_is_it", (function setup(){
   var d = new Date(),
       h = d.getHours(),
       m = pad(d.getMinutes(),2),
@@ -50,7 +58,9 @@ new Question("what_time_is_it", function(){
 
   $(".time").text(time);
 
-  return time;
+  return function answer(){
+    return time;
+  };
 
   ////
 
@@ -59,13 +69,17 @@ new Question("what_time_is_it", function(){
       n = n + '';
       return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
     }
+}()));
+
+new Question("how_tall_is_the_image_in_pixels", function answer(){
+  return $("img").height();
 });
 
-new Question("how_tall_is_the_image_in_pixels", $("img").height());
+new Question("how_wide_is_the_image_in_pixels", function answer(){
+  return $("img").width();
+});
 
-new Question("how_wide_is_the_image_in_pixels", $("img").width());
-
-new Question("what_is_the_image_url", function(){
+new Question("what_is_the_image_url", (function setup(){
   var choices = [
     "http://imgs.xkcd.com/comics/voyager_1.png",
     "http://imgs.xkcd.com/comics/bumblebees.png",
@@ -76,12 +90,17 @@ new Question("what_is_the_image_url", function(){
   var url = choices[random];
   $("img").attr("src", url);
 
-  return url;
+  return function answer(){
+    return url;
+  }
+
+}()));
+
+new Question("what_does_the_question_field_say", function answer(){
+  return $("input#question").val();
 });
 
-new Question("what_does_the_question_field_say", $("input#question").val());
-
-new Question("what_is_the_sum_of_the_two_numbers", function(){
+new Question("what_is_the_sum_of_the_two_numbers", (function setup(){
   var total = 0;
 
   $("input.add-me").each(function(){
@@ -90,18 +109,8 @@ new Question("what_is_the_sum_of_the_two_numbers", function(){
     total += n;
   })
 
-  return total;
-});
+  return function answer(){
+    return total;
+  }
 
-
-new Question("what_is_the_sum_of_the_two_numbers", function(){
-  var total = 0;
-
-  $("input.add-me").each(function(){
-    var n = Math.round((Math.random()*10));
-    $(this).val( n );
-    total += n;
-  })
-
-  return total;
-});
+}()));
