@@ -1,6 +1,8 @@
 ## jQuery Playground
 
-In this lab you will use jQuery methods to answer questions about what's happening on the page.
+In this lab you will use jQuery methods to answer questions about what's happening on the page, and make changes to elements on the page.
+
+![screen shot 2017-01-26 at 10 07 23 am](https://cloud.githubusercontent.com/assets/1489337/22344041/4be2f7fe-e3af-11e6-81c4-bb528843e802.png)
 
 For example, given the following prompt:
 
