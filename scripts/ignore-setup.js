@@ -42,19 +42,19 @@ new Question("how_many_p_tags_are_on_the_page", function answer(){
   return $("p").length;
 });
 
-new Question("grab_all_the_colorful_messages", function answer(){
+new Question("grab_all_the_colorful_message_elements", function answer(){
   return $(".alert");
 });
 
-new Question("grab_the_red_message", function answer(){
+new Question("grab_the_red_message_element", function answer(){
   return $(".alert-danger");
 });
 
-new Question("grab_the_blue_message", function answer(){
+new Question("grab_the_blue_message_element", function answer(){
   return $(".alert-info");
 });
 
-new Question("what_time_is_it", (function setup(){
+new Question("what_time_is_on_the_page", (function setup(){
   var d = new Date(),
       h = d.getHours(),
       m = pad(d.getMinutes(),2),
