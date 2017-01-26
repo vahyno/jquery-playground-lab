@@ -8,12 +8,12 @@ function removeCanary(){
 
 var problem_set = {};
 
-function Question(q, a) {
+function Question(q, a_or_cb) {
   this.answer = null; // submitted answer
-  if ( typeof a === "function" ) {
-    this.correct_answer = a();
+  if ( typeof a_or_cb === "function" ) {
+    this.correct_answer = a_or_cb();
   } else {
-    this.correct_answer = a;
+    this.correct_answer = a_or_cb;
   }
   window.problem_set[q] = this;
 }
