@@ -31,9 +31,9 @@ Question.prototype = {
 }
 
 
-new Question("how_many_h1_tags_are_on_the_page", 1);
+new Question("how_many_h1_tags_are_on_the_page", $("h1").length);
 
-new Question("how_many_p_tags_are_on_the_page", 0);
+new Question("how_many_p_tags_are_on_the_page", $("p").length);
 
 new Question("grab_all_the_buttons", $("button"));
 
