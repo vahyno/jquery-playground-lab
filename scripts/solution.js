@@ -42,5 +42,8 @@ problem_set.what_is_the_image_url.answer = $("img").attr("src");
 
 var left = parseInt( $(".add-me").eq(0).val() );
 var right = parseInt( $(".add-me").eq(1).val() );
-problem_set.what_is_the_sum_of_the_two_numbers.answer = left + right;
+var total = left + right;
+problem_set.what_is_the_sum_of_the_two_numbers.answer = total;
 
+problem_set.modify_the_dom_to_display_the_result_of_the_addition; // MODIFY THE DOM DIRECTLY!
+$("input#total").val(total);

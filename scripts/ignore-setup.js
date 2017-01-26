@@ -117,5 +117,14 @@ new Question("what_is_the_sum_of_the_two_numbers", (function setup(){
   return function answer(){
     return total;
   }
-
 }()));
+
+
+new Question("modify_the_dom_to_display_the_result_of_the_addition", function answer(){
+  var total = 0;
+  $("input.add-me").each(function(){
+    total += +$(this).val();
+  });
+
+  return +$("#total").val() === total;
+}, true);

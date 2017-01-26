@@ -22,9 +22,7 @@ problem_set.what_is_the_image_url.answer = "YOUR ANSWER HERE";
 
 problem_set.what_is_the_sum_of_the_two_numbers.answer = "YOUR ANSWER HERE";
 
-
-
-
+problem_set.modify_the_dom_to_display_the_result_of_the_addition; // MODIFY THE DOM DIRECTLY!
 
 
 
