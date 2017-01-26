@@ -1,20 +1,21 @@
 var problem_set = {};
 
 function Question(q, a) {
-  this.answer = ""; // submitted answer
+  this.answer = null; // submitted answer
   if ( typeof a === "function" ) {
     this.correct_answer = a();
   } else {
     this.correct_answer = a;
   }
-  problem_set[q] = this;
+  window.problem_set[q] = this;
 }
 Question.prototype = {
   check_answer: function(a){
     var a = a || this.answer;
 
-    if (a === this.correct_answer) {
-      return true;
+
+    if ( ['string', 'number'].includes(typeof a) ) {
+      return (a === this.correct_answer);
     }
 
     // compare equality of DOM nodes (regardless of $ vs. vanilla)
@@ -51,4 +52,49 @@ new Question("what_time_is_it", function(){
       n = n + '';
       return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
     }
+});
+
+new Question("how_tall_is_the_image_in_pixels", $("img").height());
+
+new Question("how_wide_is_the_image_in_pixels", $("img").width());
+
+new Question("what_is_the_image_url", function(){
+  var choices = [
+    "http://imgs.xkcd.com/comics/voyager_1.png",
+    "http://imgs.xkcd.com/comics/bumblebees.png",
+    "http://imgs.xkcd.com/comics/island_color.jpg"
+  ];
+
+  var random = Math.round(Math.random()*10) % choices.length;
+  var url = choices[random];
+  $("img").attr("src", url);
+
+  return url;
+});
+
+new Question("what_does_the_question_field_say", $("input#question").val());
+
+new Question("what_is_the_sum_of_the_two_numbers", function(){
+  var total = 0;
+
+  $("input.add-me").each(function(){
+    var n = Math.round((Math.random()*10));
+    $(this).val( n );
+    total += n;
+  })
+
+  return total;
+});
+
+
+new Question("what_is_the_sum_of_the_two_numbers", function(){
+  var total = 0;
+
+  $("input.add-me").each(function(){
+    var n = Math.round((Math.random()*10));
+    $(this).val( n );
+    total += n;
+  })
+
+  return total;
 });
