@@ -32,3 +32,6 @@ See `challenge.js` for the full problem set.
     - Make sure your Chrome Javascript Console is open!
     - You'll see a list of questions and results.
 1. We encourage you to primarily code in your console. When you've solved a problem, copy your answer into `challenge.js`.
+
+## Handy jQuery Methods
+`.text()`, `.val()`, `.attr()`, `.addClass()`, `.removeClass()`, `.show()`, `.hide()`, `.append()`
