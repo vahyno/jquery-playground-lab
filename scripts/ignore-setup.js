@@ -86,9 +86,9 @@ new Question("how_wide_is_the_image_in_pixels", function answer(){
 
 new Question("what_is_the_image_url", (function setup(){
   var choices = [
-    "http://imgs.xkcd.com/comics/voyager_1.png",
-    "http://imgs.xkcd.com/comics/bumblebees.png",
-    "http://imgs.xkcd.com/comics/island_color.jpg"
+    "https://imgs.xkcd.com/comics/voyager_1.png",
+    "https://imgs.xkcd.com/comics/bumblebees.png",
+    "https://imgs.xkcd.com/comics/island_color.jpg"
   ];
 
   var random = Math.round(Math.random()*10) % choices.length;
