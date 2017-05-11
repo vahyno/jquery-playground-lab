@@ -31,9 +31,9 @@ See `challenge.js` for the full problem set.
 ## Getting Started
 1. Clone this repo, and open it in your text editor of choice.
 1. Launch `index.html` in your Chrome Browser.
-    - Make sure your Chrome Javascript Console is open!
-    - You'll see a list of questions and results.
-1. We encourage you to primarily code in your console. When you've solved a problem, copy your answer into `challenge.js`.
+1. Open you Chrome Javascript Console.
+    - You will see a list of questions, and whether you have answered them correctly.
+1. We encourage you to primarily code in your console. When you think you've solved a problem, copy your answer into `challenge.js`. And then refresh the page to see if you got it right.
 
 ## Handy jQuery Methods
 `.text()`, `.val()`, `.attr()`, `.addClass()`, `.removeClass()`, `.show()`, `.hide()`, `.append()`
