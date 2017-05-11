@@ -5,14 +5,16 @@
 function removeCanary(){
   $("#canary").remove();
 }
-
-var problem_set = {};
-
 function Question(q, getAnswer, check_dom_for_answer) {
+  this.question = q;
   this.answer = null; // user submitted answer
   this.getAnswer = getAnswer;
   this.check_dom_for_answer = check_dom_for_answer || false;
-  window.problem_set[q] = this;
+}
+Question.problem_set = window.problem_set = {};
+Question.build = function(){
+  var q = new this(...arguments);
+  this.problem_set[q.question] = q;
 }
 Question.prototype = {
   isCorrectAnswer: function(){
@@ -34,27 +36,27 @@ Question.prototype = {
 }
 
 
-new Question("how_many_h1_tags_are_on_the_page", function answer(){
+Question.build("how_many_h1_tags_are_on_the_page", function answer(){
   return $("h1").length;
 });
 
-new Question("how_many_p_tags_are_on_the_page", function answer(){
+Question.build("how_many_p_tags_are_on_the_page", function answer(){
   return $("p").length;
 });
 
-new Question("grab_all_the_colorful_message_elements", function answer(){
+Question.build("grab_all_the_colorful_message_elements", function answer(){
   return $(".alert");
 });
 
-new Question("grab_the_red_message_element", function answer(){
+Question.build("grab_the_red_message_element", function answer(){
   return $(".alert-danger");
 });
 
-new Question("grab_the_blue_message_element", function answer(){
+Question.build("grab_the_blue_message_element", function answer(){
   return $(".alert-info");
 });
 
-new Question("what_time_is_on_the_page", (function setup(){
+Question.build("what_time_is_on_the_page", (function setup(){
   var d = new Date(),
       h = d.getHours(),
       m = pad(d.getMinutes(),2),
@@ -76,15 +78,15 @@ new Question("what_time_is_on_the_page", (function setup(){
     }
 }()));
 
-new Question("how_tall_is_the_image_in_pixels", function answer(){
+Question.build("how_tall_is_the_image_in_pixels", function answer(){
   return $("img").height();
 });
 
-new Question("how_wide_is_the_image_in_pixels", function answer(){
+Question.build("how_wide_is_the_image_in_pixels", function answer(){
   return $("img").width();
 });
 
-new Question("what_is_the_image_url", (function setup(){
+Question.build("what_is_the_image_url", (function setup(){
   var choices = [
     "https://imgs.xkcd.com/comics/voyager_1.png",
     "https://imgs.xkcd.com/comics/bumblebees.png",
@@ -101,18 +103,18 @@ new Question("what_is_the_image_url", (function setup(){
 
 }()));
 
-new Question("what_does_the_question_field_say", (function setup(){
+Question.build("what_does_the_question_field_say", (function setup(){
   var original_value = $("input#question").val();
   return function() {
     return original_value;
   }
 }()));
 
-new Question("replace_the_question_field_with_the_word_yes", function(){
+Question.build("replace_the_question_field_with_the_word_yes", function(){
   return $("input#question").val().match(/yes/i)
 }, true)
 
-new Question("what_is_the_sum_of_the_two_numbers", (function setup(){
+Question.build("what_is_the_sum_of_the_two_numbers", (function setup(){
   var total = 0;
 
   $("input.add-me").each(function(){
@@ -127,7 +129,7 @@ new Question("what_is_the_sum_of_the_two_numbers", (function setup(){
 }()));
 
 
-new Question("modify_the_dom_to_display_the_result_of_the_addition", function answer(){
+Question.build("modify_the_dom_to_display_the_result_of_the_addition", function answer(){
   var total = 0;
   $("input.add-me").each(function(){
     total += +$(this).val();
@@ -137,22 +139,22 @@ new Question("modify_the_dom_to_display_the_result_of_the_addition", function an
 }, true);
 
 
-new Question("grab_the_red_queen", function answer(){
+Question.build("grab_the_red_queen", function answer(){
   return $("#chessboard .glyphicon-queen.red")
 })
 
-new Question("grab_the_square_the_red_queen_is_in", (function setup(){
+Question.build("grab_the_square_the_red_queen_is_in", (function setup(){
   var original_square = $("#chessboard .glyphicon-queen.red").parent(".square");
   return function answer() {
     return original_square;
   }
 }()));
 
-new Question("remove_the_endangered_class_from_the_red_queens_square", function answer(){
+Question.build("remove_the_endangered_class_from_the_red_queens_square", function answer(){
   return $(".endangered").length === 0;
 }, true);
 
-new Question("move_the_red_queen_to_safety", function answer(){
+Question.build("move_the_red_queen_to_safety", function answer(){
   var queen_is_safe = $(".glyphicon-queen.red").length && !$(".square:eq(0)").children(".glyphicon-queen.red").length;
 
   if (queen_is_safe) {
